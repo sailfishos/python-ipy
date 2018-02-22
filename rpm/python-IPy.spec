@@ -43,7 +43,6 @@ and IPv6 Addresses and Networks.
 
 
 %build
-#%py3_build
 %{__python3} setup.py build
 
 %check
@@ -52,7 +51,6 @@ PYTHONPATH=$PWD %{__python3} test/test_IPy.py
 
 
 %install
-#%py3_install
 %{__python3} setup.py install --skip-build --root %{buildroot}
 
 %files
