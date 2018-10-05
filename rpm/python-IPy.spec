@@ -24,7 +24,7 @@
 
 Summary:        Python module for handling IPv4 and IPv6 Addresses and Networks
 Name:           python3-IPy
-Version:        0.81
+Version:        0.83
 Release:        21%{?dist}
 URL:            https://github.com/haypo/python-ipy
 Source:         %{name}-%{version}.tar.gz
