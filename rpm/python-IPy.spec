@@ -47,7 +47,7 @@ and IPv6 Addresses and Networks.
 
 %check
 PYTHONPATH=$PWD %{__python3} test/test_IPy.py
-#PYTHONPATH=$PWD %{__python3} test_doc.py  # FAILS
+PYTHONPATH=$PWD %{__python3} test_doc.py
 
 
 %install
