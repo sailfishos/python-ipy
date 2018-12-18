@@ -1,0 +1,35 @@
+From b4ff5ede3524d1572f5aa7c1384d841da6294e02 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Tomi=20Lepp=C3=A4nen?= <tomi.leppanen@jolla.com>
+Date: Thu, 13 Dec 2018 11:56:06 +0200
+Subject: [PATCH] Remove broken test
+
+This doesn't work with Python 3.7 due to set implementation changes. It
+could be just removed altogether.
+
+Upstream bug: https://github.com/autocracy/python-ipy/issues/53
+Note that upstream might want to choose differently and this patch
+should be removed once they deal with it.
+---
+ test/test.rst | 6 ------
+ 1 file changed, 6 deletions(-)
+
+diff --git a/test/test.rst b/test/test.rst
+index 313fe7e..627a72f 100644
+--- a/test/test.rst
++++ b/test/test.rst
+@@ -26,12 +26,6 @@ False
+ >>> IP('0.0.0.0/0') == IP('::/0')
+ False
+ 
+->>> d={}
+->>> d[IP('0.0.0.0/0')] = 1
+->>> d[IP('::/0')] = 2
+->>> d
+-{IP('::/0'): 2, IP('0.0.0.0/0'): 1}
+-
+ >>> addresses = [IP('0.0.0.0/16'), IP('::7'), IP('::3'), IP('::0'),
+ ...              IP('0.0.0.0'), IP('0.0.0.3'), IP('0.0.0.0/0'), IP('::/0')]
+ ...
+-- 
+2.19.2
+

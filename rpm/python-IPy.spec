@@ -31,6 +31,7 @@ Source:         %{name}-%{version}.tar.gz
 License:        BSD
 BuildRequires:  python3-devel
 BuildArch:      noarch
+Patch0:         Remove-broken-test.patch
 
 %description
 IPy is a Python 3 module for handling IPv4 and IPv6 Addresses and Networks 
@@ -40,6 +41,7 @@ and IPv6 Addresses and Networks.
 
 %prep
 %setup -q -n %{name}-%{version}/python-IPy
+%patch0 -p1
 
 
 %build
