@@ -20,8 +20,6 @@
 # TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 # SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-%define python3_sitelib /%{_libdir}/python3.?/site-packages
-
 Summary:        Python module for handling IPv4 and IPv6 Addresses and Networks
 Name:           python3-IPy
 Version:        0.83
@@ -30,6 +28,7 @@ URL:            https://github.com/haypo/python-ipy
 Source:         %{name}-%{version}.tar.gz
 License:        BSD
 BuildRequires:  python3-devel
+BuildRequires:  python3-setuptools
 BuildArch:      noarch
 Patch0:         Remove-broken-test.patch
 
@@ -45,15 +44,14 @@ and IPv6 Addresses and Networks.
 
 
 %build
-%{__python3} setup.py build
+%py3_build
 
 %check
 PYTHONPATH=$PWD %{__python3} test/test_IPy.py
 PYTHONPATH=$PWD %{__python3} test_doc.py
 
-
 %install
-%{__python3} setup.py install --skip-build --root %{buildroot}
+%py3_install
 
 %files
 %doc COPYING
