@@ -1,3 +1,3 @@
 [submodule "python-IPy"]
 	path = python-IPy
-	url = https://git.sailfishos.org/mirror/python-ipy.git
+	url = https://github.com/sailfishos-mirror/python-ipy.git
