@@ -22,15 +22,14 @@
 
 Summary:        Python module for handling IPv4 and IPv6 Addresses and Networks
 Name:           python3-IPy
-Version:        0.83
-Release:        21
-URL:            https://github.com/haypo/python-ipy
+Version:        1.01
+Release:        1
+URL:            https://github.com/sailfishos/python-ipy
 Source:         %{name}-%{version}.tar.gz
 License:        BSD
 BuildRequires:  python3-devel
 BuildRequires:  python3-setuptools
 BuildArch:      noarch
-Patch0:         Remove-broken-test.patch
 
 %description
 IPy is a Python 3 module for handling IPv4 and IPv6 Addresses and Networks 
@@ -39,19 +38,17 @@ a comfortable parsing and handling for most notations in use for IPv4
 and IPv6 Addresses and Networks.
 
 %prep
-%setup -q -n %{name}-%{version}/python-IPy
-%patch0 -p1
-
+%autosetup -n %{name}-%{version}/python-IPy
 
 %build
 %py3_build
 
+%install
+%py3_install
+
 %check
 PYTHONPATH=$PWD %{__python3} test/test_IPy.py
 PYTHONPATH=$PWD %{__python3} test_doc.py
-
-%install
-%py3_install
 
 %files
 %doc COPYING
